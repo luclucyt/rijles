@@ -22,6 +22,8 @@ lessen.forEach((les) => {
         let lesID = les.getAttribute("data-lesID");
         formData.append("lesID", lesID);
 
+        console.log(formData);
+
         xhr.onload = () => {
             let response = xhr.responseText;
             try {
@@ -38,7 +40,7 @@ lessen.forEach((les) => {
             }
 
             //show them in the detail-wrapper
-            document.querySelector(".detail-datum").innerHTML = 
+            document.querySelector(".detail-datum").innerHTML =
                 response.datum;
             document.querySelector(".detail-startTijd").innerHTML =
                 response.startTijd;
@@ -48,7 +50,7 @@ lessen.forEach((les) => {
                 response.docent;
             document.querySelector(".opmerking-content").innerHTML =
                 response.note;
-            document.querySelector(".todo-content").innerHTML = 
+            document.querySelector(".todo-content").innerHTML =
                 response.todo;
 
             spinner.style.display = "none";

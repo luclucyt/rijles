@@ -21,7 +21,8 @@ include '_view.php'; ?>
 
     <form class='add-les-form'>
         <div class='username-wrapper'>
-            <input type="text" name="userName" placeholder="Naam" class='input' id='find-user'><br>
+            <label>Naam
+                <input type="text" name="userName" placeholder="Naam" class='input' id='find-user'></label>
             <div class='result-wrapper'>
                 <div class='result'>
 
@@ -31,15 +32,15 @@ include '_view.php'; ?>
 
 
         <label>Datum
-            <input type="date" name="date" placeholder="Datum" class='input'></label>
-        <label>starttijd
-            <input type="time" name="time" placeholder="start Tijd" class='input'></label>
-        <label>eindTijd
-            <input type="time" name="time" placeholder="Eind Tijd" class='input'></label>
+            <input type="date" name="date" placeholder="Datum" class='input lesson-date'></label>
+        <label>Start tijd
+            <input type="time" name="time" placeholder="start Tijd" class='input lesson-start'></label>
+        <label>Eind tijd
+            <input type="time" name="time" placeholder="Eind Tijd" class='input lesson-end'></label>
         <label>Notitie
-            <input type="text" name="note" placeholder="Notitie" class='input'></label>
+            <input type="text" name="note" placeholder="Notitie" class='input lesson-note'></label>
         <label>TODO
-            <input type="text" name="todo" placeholder="TODO" class='input'></label>
+            <input type="text" name="todo" placeholder="TODO" class='input lesson-todo'></label>
 
         <input type="button" value="Toevoegen" class='submit'>
     </form>

@@ -14,12 +14,15 @@ function getData(): array
         'eindTijd'  =>   "-",
         'docent'    =>   "-",
         'todo'      =>   "-",
-        'note'      =>   "-"
+        'note'      =>   "-",
+        'student'   =>   '-',
+        'adres'     =>   '-'
     ];
 
     if (!isset($_POST['lesID'])) {
         return $basicReturn;
     }
+
 
     $lesID = $_POST['lesID'];
     $lesID = $db->cleanData($lesID);
@@ -32,6 +35,20 @@ function getData(): array
     }
 
     $row = mysqli_fetch_assoc($result);
+    $userID = $row['userID'];
+
+    $sql = "SELECT * FROM users WHERE userID = '$userID'";
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db->conn);
+        return $basicReturn;
+    }
+
+    $studentRow = mysqli_fetch_assoc($result);
+    $student = $studentRow["naam"];
+    $adres =  $studentRow["adres"];
+
 
 
     return[
@@ -40,6 +57,8 @@ function getData(): array
         'eindTijd'  =>   $row['eindTijd'],
         'docent'    =>   "Alvindo Den Os",
         'todo'      =>   $row['todo'],
-        'note'      =>   $row['notitie']
+        'note'      =>   $row['notitie'],
+        'student'   =>   $student,
+        'adres'     =>   $adres
     ];
 }

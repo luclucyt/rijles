@@ -74,6 +74,10 @@
         </section>
     </main>
 
+    <div class="plus-wrapper">
+        +
+    </div>
+
     <div class="spinner-background">
         <div class="spinner">
             <div></div>

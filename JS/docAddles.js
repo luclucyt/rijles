@@ -59,3 +59,45 @@ function updateList(response) {
         result.appendChild(userDiv);
     }
 }
+
+let addLessonInput = document.getElementsByClassName('submit')[0];
+addLessonInput.addEventListener('click', function () {
+    let formData = new FormData();
+    let stuName = document.getElementById('find-user').value;
+    let lessonDate = document.getElementsByClassName('lesson-date')[0].value;
+    let lessonStart = document.getElementsByClassName('lesson-start')[0].value;
+    let lessonEnd = document.getElementsByClassName('lesson-end')[0].value;
+    let lessonNote = document.getElementsByClassName('lesson-note')[0].value;
+    let lessonTodo = document.getElementsByClassName('lesson-todo')[0].value;
+
+    formData.append('stuName', stuName);
+    formData.append('lessonDate', lessonDate);
+    formData.append('lessonStart', lessonStart);
+    formData.append('lessonEnd', lessonEnd);
+    formData.append('lessonNote', lessonNote);
+    formData.append('lessonTodo', lessonTodo);
+
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'inc/addLesson.php', true);
+    xhr.onload = function () {
+        let response = this.responseText;
+        try{
+            response = JSON.parse(response);
+        }catch (e) {
+            response = {
+                status: 0,
+                data: []
+            }
+        }
+
+        if(response.status === 0){
+            alert(response.data);
+        }else{
+            alert(response.data);
+            window.location.href = 'index.php';
+        }
+    }
+
+    xhr.send(formData);
+});

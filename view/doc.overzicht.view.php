@@ -83,7 +83,8 @@
                         class="lesson grid-item"
                         style=" grid-column: <?= $lesson['colum'] + 1 ?> ;
                                 grid-row-start: <?= $lesson['startRow'] + 1?> ;
-                                grid-row-end: <?= $lesson['endRow'] + 1 ?>;">
+                                grid-row-end: <?= $lesson['endRow'] + 1 ?>;"
+                        data-id="<?= $lesson['lesID'] ?>">
                         <p>
                             <?= $lesson['naam']; ?>
                         </p>
@@ -91,6 +92,42 @@
                     <?php endforeach; ?>
                 </div>
             </div>
+    </section>
+
+    <section class="detail-wrapper">
+        <h1 class="detail-student">Naam Stu</h1>
+
+
+        <div class="detail-content-wrapper">
+            <div class="detail-content-left">
+                <div class="detail-time">
+                    <p class="detail-startTijd">19:00</p>
+                    <p class="detail-eindTijd">20:00</p>
+                </div>
+
+                <div class="detail-instructeur-wrapper">
+                    <p class="detail-adres">adres</p>
+                </div>
+            </div>
+
+
+            <div class="detail-content-right">
+                <div class="detail-opmerking">
+                    <p>Notitie:</p>
+                    <p class="opmerking-content">q</p>
+                </div>
+                <div class="detail-todo">
+                    <p>TODO:</p>
+                    <p class="todo-content">q</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-close">
+            <div class="close-background"></div>
+            <span class="close1"></span>
+            <span class="close2"></span>
+        </div>
     </section>
 
     <div class="plus-wrapper">

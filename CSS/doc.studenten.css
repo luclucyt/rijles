@@ -1,4 +1,5 @@
 @import url("root.css");
+
 body {
     overflow: hidden;
 }
@@ -186,6 +187,23 @@ main {
     .close1 {
         transform: rotate(-45deg);
     }
+}
+
+.plus-wrapper {
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+
+    background: var(--callToAction);
+    border-radius: 100%;
+
+    width: 4rem;
+    height: 4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
 }
 
 @keyframes fadeIn {
