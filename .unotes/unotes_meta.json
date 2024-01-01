@@ -1,0 +1,39 @@
+{
+  "name": "",
+  "isOrdered": true,
+  "folders": {
+    "CSS": {
+      "name": "CSS",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "img": {
+      "name": "img",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "inc": {
+      "name": "inc",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "JS": {
+      "name": "JS",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "view": {
+      "name": "view",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    }
+  },
+  "files": {
+    "README": 0
+  }
+}

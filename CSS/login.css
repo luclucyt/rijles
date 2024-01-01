@@ -1,0 +1,85 @@
+@import url("root.css");
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    background-color: var(--oneDeep);
+
+    width: 40vw;
+
+    border-radius: 8px;
+}
+
+.header{
+    color: #eeeeee;
+}
+
+form{
+    width: 100%;
+    height: 80%;
+
+    margin-left: 2%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input{
+    border: none;
+	background-color: var(--twoDeep);
+	padding: 2%;
+    margin: 1%;
+    margin-left: 2%;
+	width: 89%;
+    font-size: 20px;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+#login-error{
+    color: red;
+}
+
+#login-submit{
+    padding: 1%;
+    margin-bottom: 2%;
+
+    width: 30%;
+    height: 6vh;
+
+    border: none;
+    border-radius: 16px;
+
+    background-color: var(--callToAction);
+    transition: all 0.3s ease-in-out;
+
+    cursor: pointer;
+}
+
+#login-submit:hover{
+    background-color: var(--callToActionHover);
+}
+@media only screen and (max-width: 750px) {
+    main {
+        width: 95vw;
+        margin: 1vw;
+
+        height: 60vh;
+    }
+
+    form{
+        align-items: center;
+        margin: 0;
+        margin-top: 5%;
+    }
+
+    input{
+        text-align: center;
+    }
+}

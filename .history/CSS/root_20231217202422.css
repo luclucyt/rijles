@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --background: #121212;
+
+    --oneDeep: #1d1d1d;
+    --twoDeep: #242424;
+    --threeDeep: #2b2b2b;
+    --fourDeep: #323232;
+    --fiveDeep: #393939;
+    --sixDeep: #404040;
+
+    --callToAction: #4285F4;
+    --callToActionHover: #2c5aa0;
+    --callToActionDisabled: #4285F4;
+}
+
+body{
+    background-color: var(--background);
+    min-height: 98vh;
+
+    font-family: 'Roboto', sans-serif;
+    
+    color: white;
+    
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,50 @@
+@import url("root.css");
+body {
+    overflow: hidden;
+}
+
+.welkom-text {
+    font-size: 3rem;
+    margin-left: 5%;
+}
+
+main {
+    display: flex;
+    width: 100%;
+}
+
+.user-wrapper {
+    width: 50%;
+    height: 90vh;
+
+    overflow: scroll;
+}
+
+.student-wrapper {
+    background-color: var(--oneDeep);
+
+    margin-left: 5%;
+    margin-bottom: 1%;
+    padding: 1%;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+}
+
+.selected-student {
+    background-color: var(--callToAction);
+}
+
+.detail-wrapper {
+    width: 40%;
+
+    height: 50vw;
+
+    overflow: hidden;
+    background-color: var(--oneDeep);
+
+    border-radius: 16px;
+    margin-left: 2.5%;
+    padding: 0 2%;
+}

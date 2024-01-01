@@ -1,0 +1,131 @@
+@import url("root.css");
+body {
+    overflow: hidden;
+}
+
+.welkom-text {
+    font-size: 3rem;
+    margin-left: 5%;
+}
+
+main {
+    display: flex;
+    width: 100%;
+}
+
+.user-wrapper {
+    width: 50%;
+    height: 90vh;
+
+    overflow: scroll;
+}
+
+.student-wrapper {
+    background-color: var(--oneDeep);
+
+    margin-left: 5%;
+    margin-bottom: 1%;
+    padding: 1%;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+}
+
+.selected-student {
+    background-color: var(--callToAction);
+}
+
+.detail-wrapper {
+    width: 40%;
+
+    height: 50vw;
+
+    overflow: hidden;
+    background-color: var(--oneDeep);
+
+    border-radius: 16px;
+    margin-left: 2.5%;
+    padding: 0 2%;
+}
+
+@media screen and (max-width: 750px) {
+    .welkom-text {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    .detail-wrapper {
+        width: 90%;
+
+        position: fixed;
+        bottom: 0;
+
+        height: 50vh;
+
+        padding-top: 2%;
+        margin-left: 2.5%;
+
+        background-color: var(--twoDeep);
+        border-radius: 16px 16px 0 0;
+
+        display: flex;
+
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .close-background {
+        position: absolute;
+        top: calc(2rem + 1%);
+        right: 10%;
+        width: 5%;
+        height: 10%;
+
+        cursor: pointer;
+    }
+
+    .close1,
+    .close2 {
+        position: absolute;
+        top: calc(2rem + 1%);
+        right: 10%;
+        width: 0.5%;
+        height: 10%;
+
+        background-color: white;
+        cursor: pointer;
+
+        transform: rotate(45deg);
+    }
+
+    .close1 {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        height: 0;
+        display: block;
+    }
+
+    to {
+        height: 50%;
+        display: block;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        height: 50%;
+    }
+
+    to {
+        height: 0;
+        display: none;
+    }
+}

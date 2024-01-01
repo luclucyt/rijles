@@ -1,0 +1,259 @@
+@import url("root.css");
+
+body {
+    overflow: hidden;
+}
+
+.welkom-text {
+    font-size: 3rem;
+    margin-left: 5%;
+}
+
+main {
+    display: flex;
+    width: 100%;
+}
+
+.lessen-wrapper {
+    width: 50%;
+    height: 90vh;
+
+    overflow: scroll;
+}
+
+.les-wrapper {
+    background-color: var(--oneDeep);
+
+    margin-left: 5%;
+    margin-bottom: 1%;
+    padding: 1%;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+}
+
+.selected-les {
+    background-color: var(--callToAction);
+}
+
+.detail-wrapper {
+    width: 40%;
+
+    height: 50vw;
+
+    overflow: hidden;
+    background-color: var(--oneDeep);
+
+    border-radius: 16px;
+    margin-left: 2.5%;
+    padding: 0 2%;
+}
+
+.detail-datum {
+    font-size: 3rem;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.detail-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    width: 100%;
+    height: 95%;
+}
+
+.detail-content-left,
+.detail-content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 49%;
+}
+
+.detail-time,
+.detail-instructeur-wrapper,
+.detail-opmerking,
+.detail-todo {
+    background-color: var(--callToAction);
+    width: 100%;
+    text-align: center;
+    border-radius: 16px;
+
+    height: 15vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-bottom: 5%;
+}
+
+.detail-instructeur-wrapper {
+    justify-content: space-around;
+    background-color: var(--callToAction);
+}
+
+.detail-instructeur-img {
+    border-radius: 100%;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 750px) {
+    .welkom-text {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    .lessen-wrapper {
+        width: 95%;
+    }
+
+    .detail-wrapper {
+        width: 90%;
+
+        position: fixed;
+        bottom: 0;
+
+        height: 50vh;
+
+        padding-top: 2%;
+        margin-left: 2.5%;
+
+        background-color: var(--twoDeep);
+        border-radius: 16px 16px 0 0;
+
+        display: none;
+
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .detail-datum {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .detail-content-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5%;
+        width: 90%;
+
+        margin-left: 5%;
+    }
+
+    .detail-content-left,
+    .detail-content-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+
+        width: 49%;
+    }
+
+    .detail-time {
+        background-color: var(--callToAction);
+        width: 100%;
+        text-align: center;
+        border-radius: 16px;
+
+        height: 15vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .detail-instructeur-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 5%;
+        background-color: var(--callToAction);
+        width: 100%;
+        height: 15vh;
+
+        border-radius: 16px;
+
+        vertical-align: middle;
+    }
+
+    .detail-instructeur-img {
+        height: 3.5rem;
+        border-radius: 100%;
+    }
+
+    .detail-opmerking,
+    .detail-todo {
+        background-color: var(--callToAction);
+        width: 40vw;
+        text-align: center;
+        border-radius: 16px;
+
+        height: 15vh;
+    }
+
+    .detail-todo {
+        margin-top: 5%;
+    }
+
+    .close-background {
+        position: absolute;
+        top: calc(2rem + 1%);
+        right: 10%;
+        width: 5%;
+        height: 10%;
+
+        cursor: pointer;
+    }
+
+    .close1,
+    .close2 {
+        position: absolute;
+        top: calc(2rem + 1%);
+        right: 10%;
+        width: 0.5%;
+        height: 10%;
+
+        background-color: white;
+        cursor: pointer;
+
+        transform: rotate(45deg);
+    }
+
+    .close1 {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        height: 0;
+        display: block;
+    }
+
+    to {
+        height: 50%;
+        display: block;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        height: 50%;
+    }
+
+    to {
+        height: 0;
+        display: none;
+    }
+}
