@@ -21,7 +21,10 @@
     <main>
         <section class="user-wrapper">
             <div class="studenten-search">
-                <input type="text" placeholder="Zoek studenten" id="search">
+                <form autocomplete="off">
+                    <input type="text" placeholder="Zoek studenten" id="search" autocomplete="off"
+                        name="uniqueFieldName">
+                </form>
             </div>
             <div class="studenten-list">
                 <?php foreach ($students as $student) : ?>

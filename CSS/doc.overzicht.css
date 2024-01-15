@@ -1,0 +1,156 @@
+@import url("root.css");
+
+:root {
+    --grid-height: 1500px;
+    --grid-width: 90vw;
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --grid-height: 1500px;
+        --grid-width: 80vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --grid-height: 1500px;
+        --grid-width: 70vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --grid-height: 1500px;
+        --grid-width: 60vw;
+    }
+}
+
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--threeDeep);
+
+    min-width: 50%;
+    height: fit-content;
+
+    margin: auto auto;
+}
+
+.agenda-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+    width: var(--grid-width);
+
+    text-align: center;
+
+    position: sticky;
+    top: 0;
+
+    background-color: var(--twoDeep);
+
+    z-index: 999;
+}
+
+.grid-container {
+    position: relative;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(48, 1fr);
+
+    background-color: var(--oneDeep);
+    height: var(--grid-height);
+    width: var(--grid-width);
+}
+
+.hour-line-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+
+    /* background-color: blue; */
+    height: var(--grid-height);
+    width: var(--grid-width);
+
+    position: absolute;
+    top: 0;
+}
+
+.hour-line {
+    border-bottom: 1px solid var(--threeDeep);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.hour-line:first-of-type {
+    border-top: 1px solid var(--threeDeep);
+}
+
+.hour-line * {
+    margin-left: -3em;
+    margin-bottom: -0.75em;
+}
+.day-line-wrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+    /* background-color: blue; */
+    height: var(--grid-height);
+    width: var(--grid-width);
+
+    position: absolute;
+    top: 0;
+}
+
+.day-line {
+    border-left: 1px solid var(--threeDeep);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.day-line:last-of-type {
+    border-right: 1px solid var(--threeDeep);
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 30px;
+    text-align: center;
+
+    grid-column: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.plus-wrapper {
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+
+    background: var(--callToAction);
+    border-radius: 100%;
+
+    width: 4rem;
+    height: 4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}

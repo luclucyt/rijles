@@ -1,5 +1,9 @@
 <?php
 
+// if the sessions isnt started, start it 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 echo '<script>';
-include $_SERVER['DOCUMENT_ROOT'] . '/JS/root.js';
+require $_SERVER['DOCUMENT_ROOT'] . '/JS/root.js';
 echo '</script>';
