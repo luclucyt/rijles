@@ -13,7 +13,7 @@ function getData(): array
         'startTijd' =>   "-",
         'eindTijd'  =>   "-",
         'docent'    =>   "-",
-        'todo'   =>   "-",
+        'todo'      =>   "-",
         'note'      =>   "-"
     ];
 
