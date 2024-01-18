@@ -13,7 +13,11 @@ if ($_SESSION['isAdmin'] != 1) {
 //and put them in a array
 $today = date("Y-m-d");
 
-$_SESSION['week_offset'] = 2;
+if (isset($_GET['week'])) {
+    $_SESSION['week_offset'] = $_GET['week'];
+} else {
+    $_SESSION['week_offset'] = 0;
+}
 
 if (!isset($_SESSION['week_offset'])) {
     $_SESSION['week_offset'] = 0;
@@ -32,6 +36,8 @@ $thursday = date("D j M", strtotime('thursday this week', strtotime($today)) + s
 $friday = date("D j M", strtotime('friday this week', strtotime($today)) + strtotime($offset . ' week', 0));
 $saturday = date("D j M", strtotime('saturday this week', strtotime($today)) + strtotime($offset . ' week', 0));
 $sunday = date("D j M", strtotime('sunday this week', strtotime($today)) + strtotime($offset . ' week', 0));
+
+$today = date("D j M", strtotime($today));
 
 // Dutch translations
 $dayTranslations = array(
@@ -67,6 +73,8 @@ $friday = strtr($friday, $dayTranslations);
 $saturday = strtr($saturday, $dayTranslations);
 $sunday = strtr($sunday, $dayTranslations);
 
+$today = strtr($today, $dayTranslations);
+
 $monday = strtr($monday, $monthTranslations);
 $tuesday = strtr($tuesday, $monthTranslations);
 $wednesday = strtr($wednesday, $monthTranslations);
@@ -74,6 +82,8 @@ $thursday = strtr($thursday, $monthTranslations);
 $friday = strtr($friday, $monthTranslations);
 $saturday = strtr($saturday, $monthTranslations);
 $sunday = strtr($sunday, $monthTranslations);
+
+$today = strtr($today, $monthTranslations);
 
 $week = array($monday, $tuesday, $wednesday, $thursday, $friday, $saturday, $sunday);
 
