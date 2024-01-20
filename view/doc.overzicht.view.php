@@ -23,19 +23,19 @@
 
             <div class='day-wrapper'>
                 <?php foreach ($week as $day) : ?>
-                <?php if ($day == $today) : ?>
+                    <?php if ($day == $today) : ?>
                 <div class="day today">
                     <p>
                         <?= $day; ?>
                     </p>
                 </div>
-                <?php else : ?>
+                    <?php else : ?>
                 <div class="day">
                     <p>
                         <?= $day; ?>
                     </p>
                 </div>
-                <?php endif; ?>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </div>
             <div class="next-week week-manager">
@@ -68,7 +68,7 @@
                     <div class="day-line"></div>
                 </div>
                 <div class="grid">
-                    <div class="grid-item"></div>
+
                 </div>
             </div>
         </div>
