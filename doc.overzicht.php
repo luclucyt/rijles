@@ -6,13 +6,12 @@ include 'inc/forceLogin.php';
 $userID = $_SESSION['userID'];
 if ($_SESSION['isAdmin'] != 1) {
     header("Location: index.php");
+    exit;
 }
 
-
-//get the start date of the week (monday) through the end date of the week (sunday)
-//and put them in a array
 $today = date("Y-m-d");
 
+//calculate the week offset
 if (isset($_GET['week'])) {
     $_SESSION['week_offset'] = $_GET['week'];
 } else {
@@ -23,21 +22,12 @@ if (!isset($_SESSION['week_offset'])) {
     $_SESSION['week_offset'] = 0;
 }
 
+//format the week offset correctly
 if ($_SESSION['week_offset'] < 0) {
     $offset = $_SESSION['week_offset'];
 } else {
     $offset = "+ " . $_SESSION['week_offset'];
 }
-
-$monday = date("D j M", strtotime('monday this week', strtotime($today)) + strtotime($offset . ' week', 0));
-$tuesday = date("D j M", strtotime('tuesday this week', strtotime($today)) + strtotime($offset . ' week', 0));
-$wednesday = date("D j M", strtotime('wednesday this week', strtotime($today)) + strtotime($offset . ' week', 0));
-$thursday = date("D j M", strtotime('thursday this week', strtotime($today)) + strtotime($offset . ' week', 0));
-$friday = date("D j M", strtotime('friday this week', strtotime($today)) + strtotime($offset . ' week', 0));
-$saturday = date("D j M", strtotime('saturday this week', strtotime($today)) + strtotime($offset . ' week', 0));
-$sunday = date("D j M", strtotime('sunday this week', strtotime($today)) + strtotime($offset . ' week', 0));
-
-$today = date("D j M", strtotime($today));
 
 // Dutch translations
 $dayTranslations = array(
@@ -65,28 +55,75 @@ $monthTranslations = array(
     'Dec' => 'Dec',
 );
 
-$monday = strtr($monday, $dayTranslations);
-$tuesday = strtr($tuesday, $dayTranslations);
-$wednesday = strtr($wednesday, $dayTranslations);
-$thursday = strtr($thursday, $dayTranslations);
-$friday = strtr($friday, $dayTranslations);
-$saturday = strtr($saturday, $dayTranslations);
-$sunday = strtr($sunday, $dayTranslations);
+function formatDate($date, $format = 'D j M')
+{
+    global $dayTranslations, $monthTranslations, $offset, $today;
 
-$today = strtr($today, $dayTranslations);
+    $formatedDate = date($format, strtotime($date . 'this week', strtotime($today)) + strtotime($offset . ' week', 0));
+    $formatedDate = strtr($formatedDate, $dayTranslations);
+    $formatedDate = strtr($formatedDate, $monthTranslations);
 
-$monday = strtr($monday, $monthTranslations);
-$tuesday = strtr($tuesday, $monthTranslations);
-$wednesday = strtr($wednesday, $monthTranslations);
-$thursday = strtr($thursday, $monthTranslations);
-$friday = strtr($friday, $monthTranslations);
-$saturday = strtr($saturday, $monthTranslations);
-$sunday = strtr($sunday, $monthTranslations);
+    return $formatedDate;
+}
 
-$today = strtr($today, $monthTranslations);
+$startOfWeek = formatDate('monday', 'Y-m-d');
+$endOfWeek = formatDate('sunday', 'Y-m-d');
 
+$sql = "SELECT * FROM `lessen` WHERE `datum` BETWEEN '$startOfWeek' and '$endOfWeek' ORDER BY `datum` ASC";
+$result = $db->query($sql);
+
+$lessons = array();
+
+while ($row = mysqli_fetch_assoc($result)) {
+    //format the array to be used in the grid
+    $row['colum'] = date("N", strtotime($row['datum'])) - 1;
+
+    $startTijd = $row['startTijd'];
+    $eindTijd = $row['eindTijd'];
+
+    $startTijdArray = explode(":", $startTijd);
+    $eindTijdArray = explode(":", $eindTijd);
+
+    $startTijdArray[0] = $startTijdArray[0] * 2;
+    $eindTijdArray[0] = $eindTijdArray[0] * 2;
+
+    if ($startTijdArray[1] === "30") {
+        $startTijdArray[0] = $startTijdArray[0] + 1;
+    }
+
+    if ($eindTijdArray[1] == "30") {
+        $eindTijdArray[0] = $eindTijdArray[0] + 1;
+    }
+
+    $row['startRow'] = $startTijdArray[0];
+    $row['endRow'] = $eindTijdArray[0];
+
+
+    $sql = "SELECT * FROM users WHERE userID = '" . $row['userID'] . "'";
+    $result2 = $db->query($sql);
+
+    if (!$result2) {
+        die("Error: " . $sql . "<br>" . mysqli_error($db->conn));
+    }
+    $row2 = mysqli_fetch_assoc($result2);
+
+    $row['naam'] = $row2['naam'];
+
+    $lessons[] = $row;
+}
+$today = date("Y-m-d");
+
+
+$monday = formatDate('monday');
+$tuesday = formatDate('tuesday');
+$wednesday = formatDate('wednesday');
+$thursday = formatDate('thursday');
+$friday = formatDate('friday');
+$saturday = formatDate('saturday');
+$sunday = formatDate('sunday');
 $week = array($monday, $tuesday, $wednesday, $thursday, $friday, $saturday, $sunday);
 
-
+$today = date("D j M", strtotime($today));
+$today = strtr($today, $dayTranslations + $monthTranslations);
 
 include 'view/doc.overzicht.view.php';

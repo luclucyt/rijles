@@ -102,6 +102,8 @@
     background-color: var(--oneDeep);
     height: var(--grid-height);
     width: var(--grid-width);
+
+    font-size: 0.75em;
 }
 
 .hour-line-wrapper {
@@ -156,13 +158,11 @@
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 1);
-    font-size: 30px;
+    background-color: var(--threeDeep);
     text-align: center;
 
-    grid-column: 2;
-    grid-row-start: 3;
-    grid-row-end: 5;
+    width: 100%;
+    overflow: hidden;
 }
 
 .plus-wrapper {

@@ -68,10 +68,19 @@
                     <div class="day-line"></div>
                 </div>
                 <div class="grid">
-
+                    <?php foreach ($lessons as $lesson) : ?>
+                    <div
+                        class="lesson grid-item"
+                        style=" grid-column: <?= $lesson['colum'] + 1 ?> ;
+                            grid-row-start: <?= $lesson['startRow'] + 1?> ;
+                            grid-row-end: <?= $lesson['endRow'] + 1 ?>;">
+                        <p>
+                            <?= $lesson['naam']; ?>
+                        </p>
+                    <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <div class="plus-wrapper">
