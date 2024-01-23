@@ -1,5 +1,6 @@
 <?php
 
+//TODO: change the week via JS so that the page doesn't have to reload every time
 include '_database.php';
 include 'inc/forceLogin.php';
 
