@@ -1,7 +1,7 @@
 <?php
 
-login();
 include("_database.php");
+login();
 
 function login()
 {
@@ -16,6 +16,7 @@ function login()
     $result = $db->query($sql);
     $row = mysqli_fetch_assoc($result);
     $db->close();
+
     $_SESSION['userID'] = $row['userID'];
     $_SESSION['naam'] = $row['naam'];
     $_SESSION['email'] = $row['email'];

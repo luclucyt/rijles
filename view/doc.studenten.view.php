@@ -1,3 +1,4 @@
+<?php include '_view.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
