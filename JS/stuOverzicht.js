@@ -38,7 +38,8 @@ lessen.forEach((les) => {
             }
 
             //show them in the detail-wrapper
-            document.querySelector(".detail-datum").innerHTML = response.datum;
+            document.querySelector(".detail-datum").innerHTML = 
+                response.datum;
             document.querySelector(".detail-startTijd").innerHTML =
                 response.startTijd;
             document.querySelector(".detail-eindTijd").innerHTML =
@@ -47,7 +48,8 @@ lessen.forEach((les) => {
                 response.docent;
             document.querySelector(".opmerking-content").innerHTML =
                 response.note;
-            document.querySelector(".todo-content").innerHTML = response.todo;
+            document.querySelector(".todo-content").innerHTML = 
+                response.todo;
 
             spinner.style.display = "none";
         };
