@@ -39,8 +39,8 @@ function login(): array
     $_SESSION['loggedIn'] = true;
     $userID = $_SESSION['userID'] = $row['userID'];
     $mail = $_SESSION['mail'] = $row['mail'];
-    $isAdmin = $_SESSION['isAdmin'] = $row['isAdmin'];
-    $naam = $_SESSION['name'] = $row['naam'];
+    $_SESSION['isAdmin'] = $row['isAdmin'];
+    $_SESSION['name'] = $row['naam'];
 
     return [1, 'Je bent ingeloged', $userID];
 }

@@ -36,7 +36,7 @@ loginBTN.addEventListener("click", function () {
 
             window.location.href = "index.php";
         } else {
-            document.getElementById("login-error").innerHTML = response[1];
+            document.getElementById("login-error").innerHTMl = response[1];
         }
 
         loginBTN.disabled = false;
