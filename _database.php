@@ -40,5 +40,4 @@ class Database
 }
 
 $db = new Database();
-
 session_start();
