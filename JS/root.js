@@ -1,3 +1,5 @@
+alert("root.js loaded");
+
 //check if the user is logged in (localstorage)
 if (localStorage.getItem("loggedIn") != null && localStorage.getItem("userID") != null) {
     //logedin

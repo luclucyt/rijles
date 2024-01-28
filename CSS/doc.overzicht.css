@@ -26,6 +26,10 @@
     }
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .day {
     display: flex;
     justify-content: center;
@@ -46,7 +50,7 @@
     align-items: center;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,12 +67,14 @@
 
     text-align: center;
 }
-.today{
+
+.today {
     background-color: white;
     color: black;
 }
 
-.week-manager, .week-manager *{
+.week-manager,
+.week-manager * {
     background-color: var(--threeDeep);
     color: var(--callToAction);
     text-decoration: none;
@@ -125,6 +131,7 @@
     flex-direction: column;
     justify-content: flex-end;
 }
+
 .hour-line:first-of-type {
     border-top: 1px solid var(--threeDeep);
 }
@@ -133,6 +140,7 @@
     margin-left: -3em;
     margin-bottom: -0.75em;
 }
+
 .day-line-wrapper {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

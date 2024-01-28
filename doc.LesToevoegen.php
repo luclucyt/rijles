@@ -9,4 +9,4 @@ if ($_SESSION['isAdmin'] != 1) {
     exit;
 }
 
-include 'view/docToevoegen.view.php';
+include 'view/doc.LesToevoegen.view.php';

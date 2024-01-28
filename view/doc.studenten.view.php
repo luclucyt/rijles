@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vind studenten</title>
 
+    <link rel="stylesheet" href="CSS/doc.header.css">
     <link rel="stylesheet" href="CSS/doc.studenten.css">
 
     <script src="JS/docStudenten.js" defer></script>
@@ -16,7 +17,12 @@
 </head>
 
 <body>
-
+    <!-- <header>
+        <ul class="header-list">
+            <li class='header-item'><a href='doc.studenten.php'>Studenten</a></li>
+            <li class='header-item'><a href='doc.overzicht.php'>Agenda</a></li>
+        </ul>
+    </header> -->
     <h1 class="welkom-text">Welkom <?= $_SESSION['name'] ?>,</h1>
 
     <main>

@@ -8,6 +8,7 @@
 
     <title>Lessen</title>
 
+    <link rel="stylesheet" href="CSS/doc.header.css">
     <link rel="stylesheet" href="CSS/doc.overzicht.css">
 
     <script src="JS/docOverzicht.js" defer></script>
@@ -16,6 +17,12 @@
 </head>
 
 <body>
+    <!-- <header>
+        <ul class="header-list">
+            <li class='header-item'><a href='doc.studenten.php'>Studenten</a></li>
+            <li class='header-item'><a href='doc.overzicht.php'>Agenda</a></li>
+        </ul>
+    </header> -->
     <section class="agenda-wrapper">
         <div class="header">
             <div class="last-week week-manager">
@@ -26,19 +33,19 @@
 
             <div class='day-wrapper'>
                 <?php foreach ($week as $day) : ?>
-                    <?php if ($day == $today) : ?>
+                <?php if ($day == $today) : ?>
                 <div class="day today">
                     <p>
                         <?= $day; ?>
                     </p>
                 </div>
-                    <?php else : ?>
+                <?php else : ?>
                 <div class="day">
                     <p>
                         <?= $day; ?>
                     </p>
                 </div>
-                    <?php endif; ?>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </div>
             <div class="next-week week-manager">

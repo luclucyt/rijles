@@ -1,9 +1,10 @@
 <?php
 
-// if the sessions isnt started, start it 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+
 echo '<script>';
-require $_SERVER['DOCUMENT_ROOT'] . '/JS/root.js';
+include 'https://88875.stu.sd-lab.nl/rijles/JS/root.js';
 echo '</script>';

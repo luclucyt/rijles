@@ -1,1 +1,75 @@
-@import url("root.css")
+@import url("root.css");
+
+body {
+    min-width: 99vw;
+    min-height: 99vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-back {
+    color: var(--callToAction);
+    text-decoration: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+form {
+    background-color: var(--oneDeep);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding: 2rem;
+    border-radius: 16px;
+    height: 75vh;
+}
+
+@media screen and (max-width: 800px) {
+    form {
+        width: 80%;
+    }
+}
+
+.input {
+    background-color: var(--twoDeep);
+    border: none;
+    width: 100%;
+
+    padding: 1rem;
+    border-radius: 16px;
+}
+
+.submit {
+    background-color: var(--callToAction);
+    border: none;
+
+    padding: 1rem;
+    border-radius: 16px;
+    width: 50%;
+    align-self: center;
+}
+
+.username-wrapper {
+    width: 100%;
+}
+
+.result-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.result {
+    background-color: var(--threeDeep);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
