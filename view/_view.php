@@ -1,5 +1,6 @@
 <?php
 
+//check if the url contains 'view/'
 if (str_contains($_SERVER['REQUEST_URI'], 'view/')) {
     $url = $_SERVER['REQUEST_URI'];
 
